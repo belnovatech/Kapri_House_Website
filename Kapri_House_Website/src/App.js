@@ -21,7 +21,7 @@ import Footer from "./pages/Footer";
 import NewArrivals from "./pages/NewArrivals";
 import ProductDetails from "./pages/ProductDetails";
 import Dresses from "./pages/Dresses"; // ✅ already imported
-import CategoryArchGrid from "./pages/CategoryArchGrid";
+// import CategoryArchGrid from "./pages/CategoryArchGrid";
 import festiveBanner from "./assets/festivebanner.jpeg";
 import kurtaBanner from "./assets/kurta.webp";
 import dressesBanner from "./assets/dressban.webp";
@@ -32,8 +32,8 @@ import Lehengas from "./pages/Lehengas";// ← add this import// ← add this im
 // Reusable layout wrapper
 import ShrugSets from "./pages/ShrugSets";
 import Sale from "./pages/Sale";
-import FarshiSet from "./pages/FarshiSet";
-import ShararaSet from "./pages/ShararaSet";
+// import FarshiSet from "./pages/FarshiSet";
+// import ShararaSet from "./pages/ShararaSet";
 import ScrollToTop from "./components/ScrollToTop";
 function Layout({ children }) {
   return (
@@ -55,7 +55,7 @@ function HomePage() {
       <Navbar />
       <HeroSlider />
       <CategorySlider />
-      <ReelsStrip />
+      {/* <ReelsStrip /> */}
       <NewArrivalsBanner />
       <ProductSection />
       <div className="banner-wrapper">
@@ -76,7 +76,8 @@ function HomePage() {
       <HolidayDresses />
       <CelebApprovedLooks />
       <WomenOfBunaai />
-      <CategoryArchGrid />
+      {/* <CategoryArchGrid /> */}
+       <ReelsStrip />
       <FeaturedOn />
       <Footer />
     </>
@@ -98,14 +99,14 @@ function App() {
             </Layout>
           }
         />
-        <Route
+        {/* <Route
           path="/sharara-set"
           element={
             <Layout>
               <ShararaSet />
             </Layout>
           }
-        />
+        /> */}
         <Route
           path="/menswear"
           element={
@@ -186,14 +187,14 @@ function App() {
             </Layout>
           }
         />
-        <Route
+        {/* <Route
           path="/farshi-set"
           element={
             <Layout>
               <FarshiSet />
             </Layout>
           }
-        />
+        /> */}
         <Route
           path="/product-details"
           element={

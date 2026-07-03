@@ -8,13 +8,14 @@ export default function Navbar() {
 
   const menu = [
     { name: "NEW ARRIVALS", path: "/new-arrivals" },
+    { name: "DRESSES", path: "/dresses" },
     { name: "SUIT SETS", path: "/suit-sets" },
     { name: "KURTA SETS", path: "/kurta-sets" },
-    { name: "DRESSES", path: "/dresses" },
+    // { name: "DRESSES", path: "/dresses" },
     { name: "SAREES", path: "/sarees" },
-    { name: "MENSWEAR", path: "/menswear" },
+    { name: "NiGHT WEAR", path: "/menswear" },
     // { name: "HOME LINEN", path: "/home-linen" },
-    { name: "SALE", path: "/sale" },
+    { name: "BEST SELLERS", path: "/sale" },
   ];
 
   return (

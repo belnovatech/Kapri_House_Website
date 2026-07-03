@@ -55,7 +55,7 @@
 
 .kurta-card img {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 3 / 4.5;
   object-fit: cover;
   display: block;
 }
@@ -244,5 +244,38 @@
 
   .discount {
     font-size: 9px;
+  }
+}
+
+/* =========================
+   PRICE RANGE (checkbox buckets)
+========================= */
+
+.sr-price-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.sr-price-list .sr-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.sr-price-list input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .sr-price-list .sr-checkbox {
+    font-size: 13px;
   }
 }

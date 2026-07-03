@@ -9,13 +9,13 @@ import d2 from "../assets/thumbnails/d2.webp";
 // import p4 from "../assets/p4.jpg";
 import lehanga from "../assets/thumbnails/lehanga.webp";
 import saree from "../assets/thumbnails/sareee.webp";
-import farshi from "../assets/thumbnails/farshi.webp";
-import sharara from "../assets/thumbnails/beauty.webp";
+// import farshi from "../assets/thumbnails/farshi.webp";
+// import sharara from "../assets/thumbnails/beauty.webp";
 import cottonKurta from "../assets/thumbnails/cotton.webp";
 import maxi from "../assets/thumbnails/maxi.webp";
-import farshiHover from "../assets/thumbnails/farshi2.webp";
+// import farshiHover from "../assets/thumbnails/farshi2.webp";
 import maxiHover from "../assets/thumbnails/maxi2.webp";
-import shararaHover from "../assets/thumbnails/sharara2.webp";
+// import shararaHover from "../assets/thumbnails/sharara2.webp";
 import "../styles/CategorySlider.css";
 import lehangaHover from "../assets/thumbnails/lehanga2.webp";
 import sareeHover from "../assets/thumbnails/sareehov.webp";
@@ -30,8 +30,8 @@ export default function CategorySlider() {
     { image: suit,          hoverImage: suitHover,     name: "Suit Sets",    path: "/suit-sets"   },
     { image: maxi,        hoverImage: maxiHover, name: "Maxis",        path: "/maxis"       },
     { image: d1,          hoverImage: d2,     name: "Dresses",      path: "/dresses"     },
-    { image: farshi,      hoverImage: farshiHover, name: "Farshi Set",   path: "/farshi-set"  },
-    { image: sharara,     hoverImage: shararaHover, name: "Sharara Set",  path: "/sharara-set" },
+    // { image: farshi,      hoverImage: farshiHover, name: "Farshi Set",   path: "/farshi-set"  },
+    // { image: sharara,     hoverImage: shararaHover, name: "Sharara Set",  path: "/sharara-set" },
     { image: saree,       hoverImage: sareeHover, name: "Sarees",       path: "/sarees"      },
     { image: lehanga,     hoverImage: lehangaHover,  name: "Lehengas",     path: "/lehengas"    },
   ];

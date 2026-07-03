@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Header.css";
 
-import logo from "../assets/kapri.jpg";
+import logo from "../assets/Kaprilogo.webp";
 
 import {
   FiSearch,
@@ -30,9 +30,9 @@ export default function Header() {
           className="header-logo"
         />
 
-        <h2 className="brand-name">
+        {/* <h2 className="brand-name">
           Kapri<span></span> House
-        </h2>
+        </h2> */}
       </div>
 
       {/* RIGHT ICONS */}

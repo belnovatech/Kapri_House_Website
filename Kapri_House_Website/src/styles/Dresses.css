@@ -8,6 +8,20 @@
   margin-bottom: 16px;
 }
 
+.dr-no-products {
+  width: 100%;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.dr-no-products h2 {
+  margin-bottom: 10px;
+}
+
+.dr-no-products p {
+  color: #777;
+}
+
 .dr-banner {
   display: block;
   width: 100vw;
@@ -73,7 +87,7 @@
   font-size: 13px;
   letter-spacing: 0.5px;
   margin-bottom: 12px;
-  color: #222;
+  color: #0F3D2E;
 }
 
 .dr-checkbox {
@@ -86,16 +100,31 @@
   color: #444;
 }
 
-.dr-range {
-  width: 100%;
+/* =========================
+   PRICE RANGE (checkbox buckets)
+========================= */
+
+.dr-price-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-.dr-price-labels {
+.dr-price-list .dr-checkbox {
   display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  color: #777;
-  margin-top: 6px;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.dr-price-list input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
 }
 
 .dr-colors {
@@ -156,7 +185,7 @@
 .dr-img-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 3 / 4.5;
   overflow: hidden;
   border-radius: 4px;
   background: #f5f5f5;
@@ -289,13 +318,11 @@
     order: 3;
   }
 
- @media (max-width: 768px) {
   .dr-sidebar {
     display: block;
     width: 100%;
     margin-bottom: 20px;
   }
-}
 
   .dr-grid,
   .dr-grid--full {
@@ -324,6 +351,10 @@
 
   .dr-banner {
     max-height: 180px;
+  }
+
+  .dr-price-list .dr-checkbox {
+    font-size: 13px;
   }
 }
 
@@ -362,6 +393,18 @@
 
   .dr-banner {
     max-height: 150px;
+  }
+
+  .dr-no-products {
+    padding: 50px 10px;
+  }
+
+  .dr-no-products h2 {
+    font-size: 22px;
+  }
+
+  .dr-no-products p {
+    font-size: 13px;
   }
 }
 

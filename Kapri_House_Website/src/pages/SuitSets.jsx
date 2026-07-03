@@ -145,35 +145,46 @@ const colors = [
 ];
 const sizes = ["S", "M", "L", "XL"];
 
+// Same bucketed price-range logic as Sarees / KurtaSets / Night Suits / Dresses
+const priceRanges = [
+  { label: "Under ₹3,000", min: 0, max: 2999 },
+  { label: "₹3,000 - ₹3,499", min: 3000, max: 3499 },
+  { label: "₹3,500 - ₹3,999", min: 3500, max: 3999 },
+  { label: "₹4,000 & Above", min: 4000, max: Infinity },
+];
+
 export default function SuitSets() {
   const [filterOpen, setFilterOpen] = useState(false);
-    const [selectedColor, setSelectedColor] = useState(null);
-const [selectedSize, setSelectedSize] = useState(null);
-const [selectedCategory, setSelectedCategory] = useState(null);
-const [priceRange, setPriceRange] = useState(5500);
-const filteredProducts = products.filter((product) => {
-  const categoryMatch =
-    !selectedCategory ||
-    product.category === selectedCategory;
+  const [selectedColor, setSelectedColor] = useState(null);
+  const [selectedSize, setSelectedSize] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedPriceRange, setSelectedPriceRange] = useState(null);
 
-  const colorMatch =
-    !selectedColor ||
-    product.color === selectedColor;
+  const filteredProducts = products.filter((product) => {
+    const categoryMatch =
+      !selectedCategory ||
+      product.category === selectedCategory;
 
-  const sizeMatch =
-    !selectedSize ||
-    product.sizes.includes(selectedSize);
+    const colorMatch =
+      !selectedColor ||
+      product.color === selectedColor;
 
-  const priceMatch =
-    product.price <= priceRange;
+    const sizeMatch =
+      !selectedSize ||
+      product.sizes.includes(selectedSize);
 
-  return (
-    categoryMatch &&
-    colorMatch &&
-    sizeMatch &&
-    priceMatch
-  );
-});
+    const priceMatch =
+      !selectedPriceRange ||
+      (product.price >= selectedPriceRange.min &&
+        product.price <= selectedPriceRange.max);
+
+    return (
+      categoryMatch &&
+      colorMatch &&
+      sizeMatch &&
+      priceMatch
+    );
+  });
   const navigate = useNavigate();
 
   return (
@@ -226,20 +237,21 @@ const filteredProducts = products.filter((product) => {
   <div className="sr-filter-group">
     <h4>PRICE</h4>
 
-    <input
-      type="range"
-      min="0"
-      max="5500"
-      value={priceRange}
-      onChange={(e) =>
-        setPriceRange(Number(e.target.value))
-      }
-      className="sr-range"
-    />
-
-    <div className="sr-price-labels">
-      <span>₹0</span>
-      <span>₹{priceRange}</span>
+    <div className="sr-price-list">
+      {priceRanges.map((range) => (
+        <label key={range.label} className="sr-checkbox">
+          <input
+            type="checkbox"
+            checked={selectedPriceRange?.label === range.label}
+            onChange={() =>
+              setSelectedPriceRange(
+                selectedPriceRange?.label === range.label ? null : range
+              )
+            }
+          />
+          {range.label}
+        </label>
+      ))}
     </div>
   </div>
 
@@ -298,7 +310,13 @@ const filteredProducts = products.filter((product) => {
 
         <div className="product-grid">
 
-         {filteredProducts.map((item) => (
+         {filteredProducts.length === 0 ? (
+           <div className="sr-no-products">
+             <h2>No Suit Sets Found</h2>
+             <p>Try changing your filters.</p>
+           </div>
+         ) : (
+          filteredProducts.map((item) => (
             <div
               className="suit-card"
               key={item.id}
@@ -330,7 +348,8 @@ const filteredProducts = products.filter((product) => {
 </div>
 
             </div>
-          ))}
+          ))
+         )}
 
         </div>
 

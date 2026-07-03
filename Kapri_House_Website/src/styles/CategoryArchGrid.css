@@ -1,4 +1,4 @@
-.arch-section {
+/* .arch-section {
   width: 100%;
   padding: 40px 4%;
   background: #fff;
@@ -26,10 +26,10 @@
   height: auto;
   display: block;
   object-fit: contain; 
-   margin-bottom: -25%;     /* ← keeps the arch frame fully visible */
+   margin-bottom: -25%;    
 }
 
-/* TABLET */
+
 @media (max-width: 992px) {
   .arch-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -37,7 +37,7 @@
   }
 }
 
-/* MOBILE */
+
 @media (max-width: 768px) {
   .arch-section {
     padding: 30px 3%;
@@ -49,7 +49,7 @@
 }
 
 
-/* TABLET */
+
 @media (max-width: 992px) {
   .arch-section {
     padding: 30px 3%;
@@ -65,7 +65,7 @@
   }
 }
 
-/* MOBILE */
+
 @media (max-width: 768px) {
   .arch-section {
     padding: 20px 12px;
@@ -85,7 +85,7 @@
   }
 }
 
-/* SMALL MOBILE */
+
 @media (max-width: 480px) {
   .arch-section {
     padding: 16px 10px;
@@ -101,7 +101,7 @@
   }
 }
 
-/* VERY SMALL DEVICES */
+
 @media (max-width: 360px) {
   .arch-grid {
     gap: 8px;
@@ -110,4 +110,4 @@
   .arch-img {
     margin-bottom: -10%;
   }
-}
+} */

@@ -156,19 +156,23 @@ const colors = [
   "#fff",
   "#38bc7c",
   "#e8c9a0",
-  // "#d97882",
   "#6b8e6b",
   "#b8860b",
   "#4a6fa5",
-  // "#c49a6c",
-  // "#ff0000",
   "#800080",
   "#ffa500",
-  // "#ffff00",
-  
   "#8b4513",
 ];
-const sizes      = ["XS","S","M","L","XL","XXL"];
+const sizes = ["XS", "S", "M", "L", "XL", "XXL"];
+
+// Same bucketed price-range logic as Sarees / KurtaSets / NightSuits
+const priceRanges = [
+  { label: "Under ₹1,800", min: 0, max: 1799 },
+  { label: "₹1,800 - ₹2,299", min: 1800, max: 2299 },
+  { label: "₹2,300 - ₹2,799", min: 2300, max: 2799 },
+  { label: "₹2,800 - ₹3,299", min: 2800, max: 3299 },
+  { label: "₹3,300 & Above", min: 3300, max: Infinity },
+];
 
 export default function Sale() {
   const navigate = useNavigate();
@@ -176,47 +180,49 @@ export default function Sale() {
   const [selectedColor,    setSelectedColor]    = useState(null);
   const [selectedSize,     setSelectedSize]     = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [priceRange,       setPriceRange]       = useState(7000);
+  const [selectedPriceRange, setSelectedPriceRange] = useState(null);
   const [sortBy,           setSortBy]           = useState("featured");
   const [filterOpen,       setFilterOpen]       = useState(true);
 
-const filteredProducts = products.filter((product) => {
-  const categoryMatch =
-    !selectedCategory ||
-    selectedCategory === "All Sale" ||
-    product.category === selectedCategory;
+  const filteredProducts = products.filter((product) => {
+    const categoryMatch =
+      !selectedCategory ||
+      selectedCategory === "All Sale" ||
+      product.category === selectedCategory;
 
-  const colorMatch =
-    !selectedColor ||
-    product.color === selectedColor;
+    const colorMatch =
+      !selectedColor ||
+      product.color === selectedColor;
 
-  const sizeMatch =
-    !selectedSize ||
-    product.sizes.includes(selectedSize);
+    const sizeMatch =
+      !selectedSize ||
+      product.sizes.includes(selectedSize);
 
-  const priceMatch =
-    product.price <= priceRange;
+    const priceMatch =
+      !selectedPriceRange ||
+      (product.price >= selectedPriceRange.min &&
+        product.price <= selectedPriceRange.max);
 
-  return (
-    categoryMatch &&
-    colorMatch &&
-    sizeMatch &&
-    priceMatch
-  );
-});
+    return (
+      categoryMatch &&
+      colorMatch &&
+      sizeMatch &&
+      priceMatch
+    );
+  });
 
-const sorted = [...filteredProducts].sort((a, b) => {
-  if (sortBy === "price-asc")
-    return a.price - b.price;
+  const sorted = [...filteredProducts].sort((a, b) => {
+    if (sortBy === "price-asc")
+      return a.price - b.price;
 
-  if (sortBy === "price-desc")
-    return b.price - a.price;
+    if (sortBy === "price-desc")
+      return b.price - a.price;
 
-  if (sortBy === "discount")
-    return parseInt(b.discount) - parseInt(a.discount);
+    if (sortBy === "discount")
+      return parseInt(b.discount) - parseInt(a.discount);
 
-  return a.id - b.id;
-});
+    return a.id - b.id;
+  });
 
   return (
     <div className="sl-page">
@@ -264,17 +270,23 @@ const sorted = [...filteredProducts].sort((a, b) => {
 
             <div className="sl-filter-group">
               <h4>PRICE</h4>
-              <input
-                type="range"
-                min={0}
-                max={7000}
-                value={priceRange}
-                onChange={e => setPriceRange(Number(e.target.value))}
-                className="sl-range"
-              />
-              <div className="sl-price-labels">
-                <span>₹0</span>
-                <span>₹{priceRange.toLocaleString()}</span>
+              <div className="sl-price-list">
+                {priceRanges.map((range) => (
+                  <label key={range.label} className="sl-checkbox">
+                    <input
+                      type="checkbox"
+                      checked={selectedPriceRange?.label === range.label}
+                      onChange={() =>
+                        setSelectedPriceRange(
+                          selectedPriceRange?.label === range.label
+                            ? null
+                            : range
+                        )
+                      }
+                    />
+                    {range.label}
+                  </label>
+                ))}
               </div>
             </div>
 
@@ -312,35 +324,35 @@ const sorted = [...filteredProducts].sort((a, b) => {
 
         <div className={`sl-grid ${filterOpen ? "" : "sl-grid--full"}`}>
           {sorted.length === 0 ? (
-  <div className="sl-no-products">
-    <h2>No Sale Products Found</h2>
-    <p>Try changing your filters.</p>
-  </div>
-) : 
-  sorted.map(product => (
-            <div
-              className="sl-card"
-              key={product.id}
-              onClick={() =>
-                navigate("/product-details", {
-                  state: product,
-                })
-              }
-            >
-              <div className="sl-img-wrap">
-                <img src={product.image} alt={product.name} />
-              </div>
-              <div className="sl-info">
-                <div className="sl-stars">★★★★★</div>
-                <h4>{product.name}</h4>
-                <div className="sl-price">
-                  <span className="sl-mrp">₹{product.mrp.toLocaleString()}</span>
-                  <span className="sl-current">₹{product.price.toLocaleString()}</span>
-                  <span className="sl-off">({product.discount})</span>
+            <div className="sl-no-products">
+              <h2>No Sale Products Found</h2>
+              <p>Try changing your filters.</p>
+            </div>
+          ) :
+            sorted.map(product => (
+              <div
+                className="sl-card"
+                key={product.id}
+                onClick={() =>
+                  navigate("/product-details", {
+                    state: product,
+                  })
+                }
+              >
+                <div className="sl-img-wrap">
+                  <img src={product.image} alt={product.name} />
+                </div>
+                <div className="sl-info">
+                  <div className="sl-stars">★★★★★</div>
+                  <h4>{product.name}</h4>
+                  <div className="sl-price">
+                    <span className="sl-mrp">₹{product.mrp.toLocaleString()}</span>
+                    <span className="sl-current">₹{product.price.toLocaleString()}</span>
+                    <span className="sl-off">({product.discount})</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
 
       </div>

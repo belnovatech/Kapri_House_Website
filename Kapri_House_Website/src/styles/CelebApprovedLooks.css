@@ -2,7 +2,7 @@
 .celeb-section {
   width: 100%;
   padding: 40px 0 40px;
-  background: #fff;
+  background: #FAF8F4;
 }
 
 /* ── Heading ── */
@@ -10,7 +10,7 @@
   text-align: center;
   font-size: 28px;
   font-weight: 700;
-  color: #6b0f1a;
+  color: #0F3D2E;
   letter-spacing: 2px;
   margin-bottom: 24px;
   padding: 0 4%;
@@ -91,7 +91,7 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 280px;
+  height: 330px;
   flex-shrink: 0;
 }
 
@@ -147,26 +147,26 @@
 /* ── Responsive ── */
 @media (max-width: 1200px) {
   .celeb-card { flex: 0 0 24vw; }
-  .celeb-image-wrapper { height: 260px; }
+  .celeb-image-wrapper { height: 310px; }
 }
 
 @media (max-width: 992px) {
   .celeb-card { flex: 0 0 32vw; }
-  .celeb-image-wrapper { height: 240px; }
+  .celeb-image-wrapper { height: 280px; }
 }
 
 @media (max-width: 768px) {
   .celeb-section { padding: 30px 0; }
   .celeb-slider-wrapper { padding: 0 8px; gap: 6px; }
   .celeb-card { flex: 0 0 46vw; min-width: 150px; }
-  .celeb-image-wrapper { height: 200px; }
+  .celeb-image-wrapper { height: 240px; }
   .celeb-card h4 { font-size: 11px; }
   .celeb-arrow { width: 30px; height: 30px; font-size: 12px; }
 }
 
 @media (max-width: 480px) {
   .celeb-card { flex: 0 0 62vw; }
-  .celeb-image-wrapper { height: 180px; }
+  .celeb-image-wrapper { height: 210px; }
 }
 
 
@@ -193,7 +193,7 @@
   }
 
   .celeb-image-wrapper {
-    height: 220px;
+    height: 240px;
   }
 
   .celeb-card h4 {
@@ -225,7 +225,7 @@
   }
 
   .celeb-image-wrapper {
-    height: 200px;
+    height: 230px;
   }
 
   .celeb-card h4 {
@@ -248,7 +248,7 @@
   }
 
   .celeb-image-wrapper {
-    height: 180px;
+    height: 210px;
   }
 
   .celeb-heading {

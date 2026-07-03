@@ -1,6 +1,6 @@
 .navbar {
   height: 54px;
-  background: white;
+   background-color: #FAF8F4;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,7 +13,7 @@
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
-  color: #111;
+ color: #0F3D2E;
   transition: 0.3s;
 }
 

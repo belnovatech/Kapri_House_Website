@@ -22,7 +22,26 @@ import p7 from "../assets/p7.jpg";
 import p7Hover from "../assets/p7-hover.jpg";
 import p8 from "../assets/p8.jpg";
 import p8Hover from "../assets/p8-hover.jpg";
+import p9 from "../assets/p9.jpg";
+import p9Hover from "../assets/p9-hover.jpg";
 
+import p10 from "../assets/p10.jpg";
+import p10Hover from "../assets/p10-hover.jpg";
+
+import p11 from "../assets/p11.jpg";
+import p11Hover from "../assets/p11-hover.jpg";
+
+import p12 from "../assets/p12.jpg";
+import p12Hover from "../assets/p12-hover.jpg";
+
+import p13 from "../assets/p13.jpg";
+import p13Hover from "../assets/p13-hover.jpg";
+
+import p14 from "../assets/p14.jpg";
+import p14Hover from "../assets/p14-hover.jpg";
+
+import p15 from "../assets/p15.jpg";
+import p15Hover from "../assets/p15-hover.jpg";
 const products = [
   { id: 1, image: p1,   hoverImage: p1Hover,name: "Noorani Embroidered Kurta Set",       price: "2,499" },
   { id: 2, image: p2,   hoverImage: p2Hover,name: "Black Embroidered Cotton Co-ord Set", price: "2,499" },
@@ -32,6 +51,13 @@ const products = [
   { id: 6, image: p6,  hoverImage: p6Hover, name: "Cotton Charm Co-ord Set",             price: "2,499" },
   { id: 7, image: p7,  hoverImage: p7Hover, name: "Mint Green Maxi Dress",               price: "3,500" },
   { id: 8, image: p8,  hoverImage: p8Hover, name: "Fantasy Co-ord Set",                  price: "2,499" },
+    { id: 9, image: p9, hoverImage: p9Hover, name: "Royal Silk Embroidered Anarkali", price: "12,999" },
+  { id: 10, image: p10, hoverImage: p10Hover, name: "Luxury Floral Organza Saree", price: "18,499" },
+  { id: 11, image: p11, hoverImage: p11Hover, name: "Designer Banarasi Lehenga", price: "19,999" },
+  { id: 12, image: p12, hoverImage: p12Hover, name: "Premium Velvet Kurta Set", price: "15,499" },
+  { id: 13, image: p13, hoverImage: p13Hover, name: "Handcrafted Chikankari Suit Set", price: "9,999" },
+  { id: 14, image: p14, hoverImage: p14Hover, name: "Festive Silk Co-ord Set", price: "16,999" },
+  { id: 15, image: p15, hoverImage: p15Hover, name: "Elegant Embellished Gown", price: "19,499" },
 ];
 
 export default function ProductSection() {
@@ -88,8 +114,8 @@ export default function ProductSection() {
   return (
     <section className="product-section">
 
-      <h2>SHOP MORE, SAVE MORE</h2>
-      <p>Women's ethnic wear in our exclusive Sale.</p>
+     <h2>Elevate Your Ethnic Wardrobe</h2>
+<p>Handpicked arrivals blending tradition with contemporary elegance.</p>
 
       <div
         className="product-scroll-row"

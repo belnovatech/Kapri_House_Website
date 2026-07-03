@@ -1,30 +1,468 @@
-.coming-soon-container {
-  min-height: 80vh;
+.ns-page {
+  padding: 24px 40px 60px;
+}
+
+.ns-breadcrumb {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 16px;
+}
+.ns-no-products{
+  width:100%;
+  text-align:center;
+  padding:80px 20px;
+}
+
+.ns-no-products h2{
+  margin-bottom:10px;
+}
+
+.ns-no-products p{
+  color:#777;
+}
+.ns-banner {
+  display: block;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  max-height: 280px;
+  object-fit: cover;
+}
+
+.ns-toolbar {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 40px 20px;
-  text-align: center;
-  background: #fff;
+  justify-content: space-between;
+  margin: 24px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 14px 0;
 }
 
-.coming-soon-image {
-  width: 100%;
-  max-width: 500px;
-  border-radius: 12px;
-  margin-bottom: 30px;
+.ns-filter-btn {
+  background: none;
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
-.coming-soon-content h1 {
-  font-size: 32px;
+.ns-count {
+  font-size: 13px;
+  color: #555;
+}
+
+.ns-sort {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.ns-sort select {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.ns-body {
+  display: flex;
+  gap: 32px;
+}
+
+.ns-sidebar {
+  width: 220px;
+  flex-shrink: 0;
+}
+
+.ns-filter-group {
+  margin-bottom: 28px;
+}
+
+.ns-filter-group h4 {
+  font-size: 13px;
+  letter-spacing: 0.5px;
   margin-bottom: 12px;
   color: #222;
 }
 
-.coming-soon-content p {
-  font-size: 16px;
-  color: #666;
-  max-width: 500px;
-  line-height: 1.6;
+.ns-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  color: #444;
+}
+
+/* =========================
+   PRICE RANGE (checkbox buckets)
+========================= */
+
+.ns-price-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.ns-price-list .ns-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.ns-price-list input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.ns-colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ns-color-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+}
+
+.ns-color-dot.active {
+  outline: 2px solid #333;
+  outline-offset: 2px;
+}
+
+.ns-sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ns-size-btn {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.ns-size-btn.active {
+  background: #222;
+  color: #fff;
+  border-color: #222;
+}
+
+.ns-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.ns-grid--full {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.ns-card {
+  cursor: pointer;
+}
+
+.ns-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4.5;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #f5f5f5;
+}
+
+.ns-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.ns-card:hover .ns-img-wrap img {
+  transform: scale(1.04);
+}
+
+.ns-info {
+  padding-top: 10px;
+}
+
+.ns-stars {
+  color: #d4a017;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.ns-info h4 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 6px;
+}
+
+.ns-price {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.ns-mrp {
+  color: #999;
+  text-decoration: line-through;
+}
+
+.ns-current {
+  color: #c0392b;
+  font-weight: 600;
+}
+
+.ns-off {
+  color: #2e7d32;
+  font-size: 12px;
+}
+
+@media (max-width: 1024px) {
+  .ns-grid,
+  .ns-grid--full {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ns-body {
+    flex-direction: column;
+  }
+  .ns-sidebar {
+    width: 100%;
+  }
+}
+
+
+/* =========================
+   TABLET (1024px & below)
+========================= */
+@media (max-width: 1024px) {
+  .ns-page {
+    padding: 20px;
+  }
+
+  .ns-body {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .ns-sidebar {
+    width: 100%;
+  }
+
+  .ns-grid,
+  .ns-grid--full {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .ns-toolbar {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}
+
+/* =========================
+   MOBILE (768px & below)
+========================= */
+@media (max-width: 768px) {
+  .ns-page {
+    padding: 12px 14px 40px;
+  }
+
+  .ns-banner {
+    max-height: 180px;
+  }
+
+  .ns-breadcrumb {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .ns-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 12px 0;
+  }
+
+  .ns-filter-btn {
+    width: 100%;
+  }
+
+  .ns-count {
+    text-align: center;
+  }
+
+  .ns-sort {
+    justify-content: space-between;
+  }
+
+  .ns-sort select {
+    width: 140px;
+  }
+
+  .ns-sidebar {
+    width: 100%;
+  }
+
+  .ns-filter-group {
+    margin-bottom: 20px;
+  }
+
+  .ns-filter-group h4 {
+    font-size: 12px;
+  }
+
+  .ns-checkbox {
+    font-size: 13px;
+  }
+
+  .ns-price-list .ns-checkbox {
+    font-size: 13px;
+  }
+
+  .ns-color-dot {
+    width: 20px;
+    height: 20px;
+  }
+
+  .ns-size-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .ns-grid,
+  .ns-grid--full {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ns-info {
+    padding-top: 8px;
+  }
+
+  .ns-info h4 {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .ns-stars {
+    font-size: 11px;
+  }
+
+  .ns-price {
+    flex-wrap: wrap;
+    gap: 4px;
+    font-size: 12px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE (480px & below)
+========================= */
+@media (max-width: 480px) {
+  .ns-page {
+    padding: 10px;
+  }
+
+  .ns-banner {
+    max-height: 140px;
+  }
+
+  .ns-grid,
+  .ns-grid--full {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .ns-info h4 {
+    font-size: 12px;
+  }
+
+  .ns-price {
+    font-size: 11px;
+  }
+
+  .ns-current {
+    font-size: 12px;
+  }
+
+  .ns-off {
+    font-size: 10px;
+  }
+
+  .ns-filter-btn {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .ns-sort {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .ns-sort select {
+    width: 100%;
+  }
+
+  .ns-no-products {
+    padding: 50px 10px;
+  }
+
+  .ns-no-products h2 {
+    font-size: 22px;
+  }
+
+  .ns-no-products p {
+    font-size: 13px;
+  }
+}
+
+/* =========================
+   EXTRA SMALL DEVICES
+========================= */
+@media (max-width: 360px) {
+  .ns-grid,
+  .ns-grid--full {
+    gap: 8px;
+  }
+
+  .ns-info h4 {
+    font-size: 11px;
+  }
+
+  .ns-price {
+    font-size: 10px;
+  }
+
+  .ns-color-dot {
+    width: 18px;
+    height: 18px;
+  }
+
+  .ns-size-btn {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
 }

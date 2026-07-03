@@ -251,7 +251,6 @@
   }
 }
 
-/* Tablet */
 @media (max-width: 992px) {
   .fs-page {
     padding: 16px;
@@ -332,7 +331,7 @@
   }
 }
 
-/* Small Mobile */
+
 @media (max-width: 576px) {
   .fs-page {
     padding: 10px;
@@ -370,7 +369,7 @@
   }
 }
 
-/* Very Small Mobile */
+
 @media (max-width: 400px) {
   .fs-grid,
   .fs-grid--full {

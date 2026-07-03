@@ -98,16 +98,31 @@
   color: #444;
 }
 
-.sr-range {
-  width: 100%;
+/* =========================
+   PRICE RANGE (checkbox buckets)
+========================= */
+
+.sr-price-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-.sr-price-labels {
+.sr-price-list .sr-checkbox {
   display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  color: #777;
-  margin-top: 6px;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.sr-price-list input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
 }
 
 .sr-colors {
@@ -168,7 +183,7 @@
 .sr-img-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 3 / 4.5;
   overflow: hidden;
   border-radius: 4px;
   background: #f5f5f5;
@@ -320,6 +335,10 @@
   }
 
   .sr-checkbox {
+    font-size: 13px;
+  }
+
+  .sr-price-list .sr-checkbox {
     font-size: 13px;
   }
 
