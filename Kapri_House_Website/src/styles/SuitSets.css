@@ -164,19 +164,17 @@
   height: 18px;
 }
 
-/* Price */
+/* Price (checkbox buckets) */
 
-.sr-range {
-  width: 100%;
-  cursor: pointer;
+.sr-price-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 4px;
 }
 
-.sr-price-labels {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-  font-size: 15px;
-  color: #666;
+.sr-price-list .sr-checkbox {
+  margin-bottom: 0;
 }
 
 /* Colors */
@@ -221,6 +219,23 @@
   background: #000;
   color: #fff;
   border-color: #000;
+}
+
+/* No products */
+
+.sr-no-products {
+  grid-column: 1 / -1;
+  width: 100%;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.sr-no-products h2 {
+  margin-bottom: 10px;
+}
+
+.sr-no-products p {
+  color: #777;
 }
 
 /* Product Grid */
@@ -459,6 +474,18 @@
 
   .discount {
     font-size: 11px;
+  }
+
+  .sr-no-products {
+    padding: 50px 10px;
+  }
+
+  .sr-no-products h2 {
+    font-size: 22px;
+  }
+
+  .sr-no-products p {
+    font-size: 13px;
   }
 }
 

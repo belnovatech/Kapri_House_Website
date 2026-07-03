@@ -25,15 +25,16 @@
 
 /* HORIZONTAL SCROLL ROW */
 .product-scroll-row {
-  display: flex;
+  display: grid;
   flex-direction: row;
-  gap: 12px;                 /* ← gap between cards */
+  gap: 18px;                 /* ← gap between cards */
   overflow-x: auto;
   overflow-y: hidden;
+   grid-template-columns: repeat(5, 1fr);
   scroll-behavior: smooth;
   cursor: grab;
   -webkit-overflow-scrolling: touch;
-  padding: 0 12px;           /* ← small padding on left/right edges */
+  padding: 0 20px;           /* ← small padding on left/right edges */
   align-items: flex-start;   /* ← text starts from top of each card */
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -51,8 +52,8 @@
 /* CARD */
 .product-card {
   position: relative;
-  flex: 0 0 22vw;
-  min-width: 180px;
+  flex: 0 0 calc((100% - 5 * 12px) / 6);
+  min-width: 0;
   background: #fff;          /* ← white background needed for shadow to show */
   border: none;
   border-radius: 6px;        /* ← slight radius so shadow looks clean */
@@ -277,8 +278,9 @@
 /* LAPTOP */
 @media (max-width: 1200px) {
   .product-card {
-    flex: 0 0 24vw;
+    flex: 0 0 calc((100% - 3 * 12px) / 4);
   }
+
   .product-image-wrapper {
     height: 310px;
   }
@@ -303,9 +305,9 @@
     gap: 8px;
     padding: 0 8px;
   }
-  .product-card {
-    flex: 0 0 46vw;
-    min-width: 150px;
+   .product-card {
+    flex: 0 0 48%;
+    min-width: 165px;
   }
   .product-image-wrapper {
     height: 240px;
@@ -320,9 +322,11 @@
 
 /* SMALL MOBILE */
 @media (max-width: 480px) {
-  .product-card {
-    flex: 0 0 62vw;
+   .product-card {
+    flex: 0 0 68%;
+    min-width: 150px;
   }
+
   .product-image-wrapper {
     height: 210px;
   }

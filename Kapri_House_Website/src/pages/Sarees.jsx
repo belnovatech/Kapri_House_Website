@@ -163,52 +163,63 @@ const colors = [
   { id: 8, name: "Sky Blue", hex: "#87ceeb" },
   { id: 9, name: "Turquoise", hex: "#00bcd4" },
 ];
-const sizes      = ["XS","S","M","L","XL","XXL"];
+const sizes = ["XS", "S", "M", "L", "XL", "XXL"];
+
+// Same bucketed price-range logic as KurtaSets
+const priceRanges = [
+  { label: "Under ₹2,000", min: 0, max: 1999 },
+  { label: "₹2,000 - ₹2,999", min: 2000, max: 2999 },
+  { label: "₹3,000 - ₹3,999", min: 3000, max: 3999 },
+  { label: "₹4,000 - ₹4,999", min: 4000, max: 4999 },
+  { label: "₹5,000 & Above", min: 5000, max: Infinity },
+];
 
 export default function Sarees() {
   const navigate = useNavigate();
 
-  const [selectedColor,    setSelectedColor]    = useState(null);
-  const [selectedSize,     setSelectedSize]     = useState(null);
+  const [selectedColor, setSelectedColor] = useState(null);
+  const [selectedSize, setSelectedSize] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [priceRange,       setPriceRange]       = useState(9000);
-  const [sortBy,           setSortBy]           = useState("featured");
-  const [filterOpen,       setFilterOpen]       = useState(true);
+  const [selectedPriceRange, setSelectedPriceRange] = useState(null);
+  const [sortBy, setSortBy] = useState("featured");
+  const [filterOpen, setFilterOpen] = useState(true);
 
-const filteredProducts = products.filter((product) => {
-  const categoryMatch =
-    !selectedCategory ||
-    product.category === selectedCategory;
+  const filteredProducts = products.filter((product) => {
+    const categoryMatch =
+      !selectedCategory ||
+      product.category === selectedCategory;
 
-  const colorMatch =
-    !selectedColor ||
-    product.color === selectedColor;
+    const colorMatch =
+      !selectedColor ||
+      product.color === selectedColor;
 
-  const sizeMatch =
-    !selectedSize ||
-    product.sizes.includes(selectedSize);
+    const sizeMatch =
+      !selectedSize ||
+      product.sizes.includes(selectedSize);
 
-  const priceMatch =
-    product.price <= priceRange;
+    const priceMatch =
+      !selectedPriceRange ||
+      (product.price >= selectedPriceRange.min &&
+        product.price <= selectedPriceRange.max);
 
-  return (
-    categoryMatch &&
-    colorMatch &&
-    sizeMatch &&
-    priceMatch
-  );
-});
+    return (
+      categoryMatch &&
+      colorMatch &&
+      sizeMatch &&
+      priceMatch
+    );
+  });
 
-const sorted = [...filteredProducts].sort((a, b) => {
-  if (sortBy === "price-asc") return a.price - b.price;
+  const sorted = [...filteredProducts].sort((a, b) => {
+    if (sortBy === "price-asc") return a.price - b.price;
 
-  if (sortBy === "price-desc") return b.price - a.price;
+    if (sortBy === "price-desc") return b.price - a.price;
 
-  if (sortBy === "discount")
-    return parseInt(b.discount) - parseInt(a.discount);
+    if (sortBy === "discount")
+      return parseInt(b.discount) - parseInt(a.discount);
 
-  return a.id - b.id;
-});
+    return a.id - b.id;
+  });
 
   return (
     <div className="sr-page">
@@ -256,49 +267,55 @@ const sorted = [...filteredProducts].sort((a, b) => {
 
             <div className="sr-filter-group">
               <h4>PRICE</h4>
-              <input
-                type="range"
-                min={0}
-                max={9000}
-                value={priceRange}
-                onChange={e => setPriceRange(Number(e.target.value))}
-                className="sr-range"
-              />
-              <div className="sr-price-labels">
-                <span>₹0</span>
-                <span>₹{priceRange.toLocaleString()}</span>
+              <div className="sr-price-list">
+                {priceRanges.map((range) => (
+                  <label key={range.label} className="sr-checkbox">
+                    <input
+                      type="checkbox"
+                      checked={selectedPriceRange?.label === range.label}
+                      onChange={() =>
+                        setSelectedPriceRange(
+                          selectedPriceRange?.label === range.label
+                            ? null
+                            : range
+                        )
+                      }
+                    />
+                    {range.label}
+                  </label>
+                ))}
               </div>
             </div>
 
-           <div className="sr-filter-group">
-  <h4>COLOR</h4>
+            <div className="sr-filter-group">
+              <h4>COLOR</h4>
 
-  <div className="sr-colors">
-    {colors.map((color) => (
-      <button
-        key={color.id}
-        className={`sr-color-dot ${
-          selectedColor === color.hex ? "active" : ""
-        }`}
-        style={{
-          background: color.hex,
-          border:
-            color.hex === "#fff"
-              ? "1px solid #ccc"
-              : "none",
-        }}
-        onClick={() =>
-          setSelectedColor(
-            selectedColor === color.hex
-              ? null
-              : color.hex
-          )
-        }
-        title={color.name}
-      />
-    ))}
-  </div>
-</div>
+              <div className="sr-colors">
+                {colors.map((color) => (
+                  <button
+                    key={color.id}
+                    className={`sr-color-dot ${
+                      selectedColor === color.hex ? "active" : ""
+                    }`}
+                    style={{
+                      background: color.hex,
+                      border:
+                        color.hex === "#fff"
+                          ? "1px solid #ccc"
+                          : "none",
+                    }}
+                    onClick={() =>
+                      setSelectedColor(
+                        selectedColor === color.hex
+                          ? null
+                          : color.hex
+                      )
+                    }
+                    title={color.name}
+                  />
+                ))}
+              </div>
+            </div>
 
             <div className="sr-filter-group">
               <h4>SIZE</h4>
@@ -320,12 +337,12 @@ const sorted = [...filteredProducts].sort((a, b) => {
 
         <div className={`sr-grid ${filterOpen ? "" : "sr-grid--full"}`}>
         {sorted.length === 0 ? (
-  <div className="sr-no-products">
-    <h2>No Sarees Found</h2>
-    <p>Try changing your filters.</p>
-  </div>
-) : 
-  sorted.map(product => (
+          <div className="sr-no-products">
+            <h2>No Sarees Found</h2>
+            <p>Try changing your filters.</p>
+          </div>
+        ) :
+          sorted.map(product => (
             <div
               className="sr-card"
               key={product.id}

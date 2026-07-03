@@ -182,6 +182,32 @@
 }
 
 /* =========================
+   PRICE RANGE (checkbox buckets)
+========================= */
+
+.price-range-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.price-range-list label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.price-range-list input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* =========================
    COLORS
 ========================= */
 
@@ -509,23 +535,6 @@
 }
 
 /* =========================
-   PRICE RANGE
-========================= */
-
-.price-range {
-  width: 100%;
-  cursor: pointer;
-}
-
-.price-labels {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 8px;
-  font-size: 12px;
-  color: #666;
-}
-
-/* =========================
    MOBILE
 ========================= */
 
@@ -575,21 +584,6 @@
   width: 16px;
   height: 16px;
   cursor: pointer;
-}
-
-/* ===== RANGE ===== */
-
-.filter-block input[type="range"] {
-  width: 100%;
-  cursor: pointer;
-}
-
-.price-labels {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-  font-size: 13px;
-  color: #666;
 }
 
 /* ===== COLORS ===== */
@@ -767,10 +761,6 @@
 .filter-footer{
     display:none;
 }
-
-/* ==========================================
-   MOBILE (768px & BELOW)
-========================================== */
 
 /* ==========================================
    MOBILE (768px & BELOW)
@@ -978,15 +968,23 @@
     height:18px;
 }
 
-.filter-block input[type="range"]{
-    width:100%;
+.price-range-list{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
 }
 
-.price-labels{
+.price-range-list label{
     display:flex;
-    justify-content:space-between;
-    margin-top:10px;
-    font-size:13px;
+    align-items:center;
+    gap:10px;
+    font-size:14px;
+    margin-bottom:0;
+}
+
+.price-range-list input[type="checkbox"]{
+    width:18px;
+    height:18px;
 }
 
 .color-list{

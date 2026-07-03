@@ -221,13 +221,22 @@ const colors = [
 ];
 const sizes = ["XS", "S", "M", "L", "XL", "XXL"];
 
+// Same bucketed price-range logic as Sarees / KurtaSets
+const priceRanges = [
+  { label: "Under ₹1,000", min: 0, max: 999 },
+  { label: "₹1,000 - ₹1,499", min: 1000, max: 1499 },
+  { label: "₹1,500 - ₹1,999", min: 1500, max: 1999 },
+  { label: "₹2,000 - ₹2,499", min: 2000, max: 2499 },
+  { label: "₹2,500 & Above", min: 2500, max: Infinity },
+];
+
 export default function NightSuits() {
   const navigate = useNavigate();
 
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [priceRange, setPriceRange] = useState(3200);
+  const [selectedPriceRange, setSelectedPriceRange] = useState(null);
   const [sortBy, setSortBy] = useState("featured");
   const [filterOpen, setFilterOpen] = useState(true);
 
@@ -235,7 +244,10 @@ export default function NightSuits() {
     const categoryMatch = !selectedCategory || product.category === selectedCategory;
     const colorMatch = !selectedColor || product.color === selectedColor;
     const sizeMatch = !selectedSize || product.sizes.includes(selectedSize);
-    const priceMatch = product.price <= priceRange;
+    const priceMatch =
+      !selectedPriceRange ||
+      (product.price >= selectedPriceRange.min &&
+        product.price <= selectedPriceRange.max);
     return categoryMatch && colorMatch && sizeMatch && priceMatch;
   });
 
@@ -289,17 +301,21 @@ export default function NightSuits() {
 
             <div className="ns-filter-group">
               <h4>PRICE</h4>
-              <input
-                type="range"
-                min={0}
-                max={3200}
-                value={priceRange}
-                onChange={(e) => setPriceRange(Number(e.target.value))}
-                className="ns-range"
-              />
-              <div className="ns-price-labels">
-                <span>₹0</span>
-                <span>₹{priceRange.toLocaleString()}</span>
+              <div className="ns-price-list">
+                {priceRanges.map((range) => (
+                  <label key={range.label} className="ns-checkbox">
+                    <input
+                      type="checkbox"
+                      checked={selectedPriceRange?.label === range.label}
+                      onChange={() =>
+                        setSelectedPriceRange(
+                          selectedPriceRange?.label === range.label ? null : range
+                        )
+                      }
+                    />
+                    {range.label}
+                  </label>
+                ))}
               </div>
             </div>
 

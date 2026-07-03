@@ -10,7 +10,7 @@
 
   border-right: 1px solid #ececec;
 
-  background: #fff;
+  background: #FAF8F4;
 
   height: calc(100vh - 100px);
   overflow-y: auto;
@@ -39,7 +39,7 @@
 
 .filter-btn {
   border: 1px solid #111;
-  background: #fff;
+  background: #FAF8F4;
 
   padding: 6px 12px;
 
@@ -154,7 +154,7 @@
 
   margin-bottom: 4px;
 
-  color: #555;
+  color: #0F3D2E;
 }
 
 .price-boxes input {

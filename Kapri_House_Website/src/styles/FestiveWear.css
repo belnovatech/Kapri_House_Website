@@ -29,13 +29,15 @@
 .festive-scroll-row {
   display: flex;
   flex-direction: row;
-  gap: 12px;
+  gap: 18px;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-behavior: smooth;
+  justify-content: flex-start;
+  flex-wrap: wrap;
   cursor: grab;
   -webkit-overflow-scrolling: touch;
-  padding: 0 12px;
+  padding: 0 20px;
   align-items: flex-start;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -53,17 +55,17 @@
 /* ── Card ── */
 .fw-card {
   position: relative;
-  flex: 0 0 22vw;
-  min-width: 180px;
+  flex: 0 0 calc((100% - 4 * 18px) / 5); /* 5 cards per row */
+  max-width: calc((100% - 4 * 18px) / 5);
+  min-width: 0;
   background: #fff;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
   user-select: none;
   display: flex;
   flex-direction: column;
-  /* transition: transform 0.3s ease, box-shadow 0.3s ease; */
   box-shadow:
     0 2px 8px rgba(171, 41, 57, 0.1),
     0 1px 4px rgba(105, 70, 5, 0.08);
@@ -211,10 +213,10 @@ color: #0F3D2E;
   padding-bottom: 30px;
 }
 
-.view-all-btn {
+.view-btn {
   display: block;
   margin: 0 auto;
-  background: linear-gradient(135deg, #6b0f1a 0%, #b8860b 100%);
+     background: linear-gradient(135deg, #0F3D2E 0%, #8e7748 100%);
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -228,6 +230,8 @@ color: #0F3D2E;
 
 .view-all-btn:hover {
   opacity: 0.88;
+   background: #FAF8F4;
+  color: #0F3D2E;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(107, 15, 26, 0.3);
 }

@@ -79,8 +79,8 @@ export default function HolidayDresses() {
     <section className="hd-section">
 
       <div className="hd-title">
-        <h2>HOLIDAY DRESSES</h2>
-        <p>Women's dresses in different designs & colors.</p>
+       <h2>THE DRESS EDIT</h2>
+<p>Gracefully tailored dresses for every occasion and every season.</p>
       </div>
 
       <div

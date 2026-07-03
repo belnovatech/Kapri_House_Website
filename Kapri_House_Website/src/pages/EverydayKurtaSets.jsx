@@ -17,40 +17,31 @@ import ek5Hover from "../assets/ek5-hover.jpg";
 import ek6Hover from "../assets/ek6-hover.jpg";
 import ek7Hover from "../assets/ek7-hover.jpg";
 import ek8Hover from "../assets/ek8-hover.jpg";
+import k1 from "../assets/kurta1.jpg";
+import k2 from "../assets/kurta2.jpg";
+// import hov from "../assets/hov.webp";
+import hov2 from "../assets/hov2.webp";
+
 const products = [
-  { id: 1, image: ek1,hoverImage: ek1Hover, title: "Mustard Cotton Kurta Set",     mrp: 4000, price: 2499, discount: "37% OFF" },
-  { id: 2, image: ek2,hoverImage: ek2Hover, title: "Pastel Cotton Kurta Set",      mrp: 4000, price: 2499, discount: "37% OFF" },
-  { id: 3, image: ek3,hoverImage: ek3Hover, title: "Noorani Embroidered Kurta",    mrp: 4000, price: 2499, discount: "37% OFF" },
-  { id: 4, image: ek4,hoverImage: ek4Hover, title: "Blue Cotton Kurta Set",        mrp: 4000, price: 2499, discount: "37% OFF" },
-  { id: 5, image: ek5,hoverImage: ek5Hover, title: "Ivory Cotton Coord Set",       mrp: 4000, price: 2499, discount: "37% OFF" },
-  { id: 6, image: ek6,hoverImage: ek6Hover, title: "Green Straight Kurta Set",     mrp: 4000, price: 2499, discount: "37% OFF" },
-  { id: 7, image: ek7,hoverImage: ek8Hover, title: "Red Cotton Coord Set",         mrp: 4000, price: 2499, discount: "37% OFF" },
-  { id: 8, image: ek8,hoverImage: ek7Hover, title: "Lavender Crushed Coord Set",   mrp: 4000, price: 3500, discount: "12% OFF" },
+  { id: 1, image: ek1, hoverImage: ek1Hover, title: "Mustard Cotton Kurta Set",   mrp: 4000, price: 2499, discount: "37% OFF" },
+  { id: 2, image: ek2, hoverImage: ek2Hover, title: "Pastel Cotton Kurta Set",    mrp: 4000, price: 2499, discount: "37% OFF" },
+  { id: 3, image: ek3, hoverImage: ek3Hover, title: "Noorani Embroidered Kurta", mrp: 4000, price: 2499, discount: "37% OFF" },
+  { id: 4, image: ek4, hoverImage: ek4Hover, title: "Blue Cotton Kurta Set",      mrp: 4000, price: 2499, discount: "37% OFF" },
+  { id: 5, image: ek5, hoverImage: ek5Hover, title: "Ivory Cotton Coord Set",     mrp: 4000, price: 2499, discount: "37% OFF" },
+  { id: 6, image: ek6, hoverImage: ek6Hover, title: "Green Straight Kurta Set",   mrp: 4000, price: 2499, discount: "37% OFF" },
+  { id: 7, image: ek7, hoverImage: ek8Hover, title: "Red Cotton Coord Set",       mrp: 4000, price: 2499, discount: "37% OFF" },
+  { id: 8, image: ek8, hoverImage: ek7Hover, title: "Lavender Crushed Coord Set", mrp: 4000, price: 3500, discount: "12% OFF" },
+  { id: 9, image: k1, hoverImage: k1, title: "Pink Floral Kurta Set", mrp: 4000, price: 2499, discount: "37% OFF" },
+  { id: 10, image: k2, hoverImage: hov2, title: "Blue Floral Kurta Set", mrp: 4000, price: 2499, discount: "37% OFF" }
 ];
+
+// Safety cap — only render up to 10 products even if the list grows
+const displayProducts = products.slice(0, 10);
 
 export default function EverydayKurtaSets() {
   const sliderRef = useRef(null);
-  const cardRefs  = useRef([]);
-const navigate = useNavigate();
-  // drag-to-scroll
-  let isDown = false;
-  let startX;
-  let scrollLeft;
-
-  const handleMouseDown = (e) => {
-    isDown = true;
-    sliderRef.current.classList.add("dragging");
-    startX = e.pageX - sliderRef.current.offsetLeft;
-    scrollLeft = sliderRef.current.scrollLeft;
-  };
-  const handleMouseLeave = () => { isDown = false; sliderRef.current.classList.remove("dragging"); };
-  const handleMouseUp    = () => { isDown = false; sliderRef.current.classList.remove("dragging"); };
-  const handleMouseMove  = (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - sliderRef.current.offsetLeft;
-    sliderRef.current.scrollLeft = scrollLeft - (x - startX) * 1.5;
-  };
+  const cardRefs = useRef([]);
+  const navigate = useNavigate();
 
   // scroll-triggered slide-up
   useEffect(() => {
@@ -80,52 +71,48 @@ const navigate = useNavigate();
     <section className="ek-section">
 
       <div className="ek-title">
-        <h2>EVERYDAY KURTA SETS</h2>
-        <p>Stylish daily wear kurta sets for women.</p>
+        <h2>CURATED KURTA SETS</h2>
+        <p>Effortlessly elegant styles crafted for every occasion.</p>
       </div>
 
       <div
         className="ek-scroll-row"
         ref={sliderRef}
-        onMouseDown={handleMouseDown}
-        onMouseLeave={handleMouseLeave}
-        onMouseUp={handleMouseUp}
-        onMouseMove={handleMouseMove}
       >
-        {products.map((item, i) => (
-<div
-  className="ek-card"
-  key={item.id}
-  ref={(el) => (cardRefs.current[i] = el)}
-  onClick={() =>
-    navigate("/product-details", {
-      state: {
-        id: item.id,
-        image: item.image,
-        hoverImage: item.hoverImage,
-        name: item.title,
-        price: item.price,
-        mrp: item.mrp,
-        discount: item.discount,
-      },
-    })
-  }
->
-<div className="ek-image-wrapper">
-  <img
-    src={item.image}
-    alt={item.title}
-    className="ek-img ek-img-default"
-  />
+        {displayProducts.map((item, i) => (
+          <div
+            className="ek-card"
+            key={item.id}
+            ref={(el) => (cardRefs.current[i] = el)}
+            onClick={() =>
+              navigate("/product-details", {
+                state: {
+                  id: item.id,
+                  image: item.image,
+                  hoverImage: item.hoverImage,
+                  name: item.title,
+                  price: item.price,
+                  mrp: item.mrp,
+                  discount: item.discount,
+                },
+              })
+            }
+          >
+            <div className="ek-image-wrapper">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="ek-img ek-img-default"
+              />
 
-  <img
-    src={item.hoverImage}
-    alt={item.title}
-    className="ek-img ek-img-hover"
-  />
+              <img
+                src={item.hoverImage}
+                alt={item.title}
+                className="ek-img ek-img-hover"
+              />
 
-  <span className="ek-badge">{item.discount}</span>
-</div>
+              <span className="ek-badge">{item.discount}</span>
+            </div>
 
             <div className="ek-info">
               <div className="ek-stars">★★★★★</div>
@@ -140,12 +127,12 @@ const navigate = useNavigate();
       </div>
 
       <div className="ek-view-all-wrap">
-       <button
-  className="view-btn"
-  onClick={() => navigate("/kurta-sets")}
->
-  VIEW ALL
-</button>
+        <button
+          className="ek-view-all-btn"
+          onClick={() => navigate("/kurta-sets")}
+        >
+          VIEW ALL
+        </button>
       </div>
 
     </section>
