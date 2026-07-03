@@ -81,6 +81,7 @@ const products = [
     discount: "23% OFF",
   },
 ];
+
 const categories = ["Dresses", "Suit Sets", "Kurtas"];
 
 const colors = [
@@ -92,15 +93,24 @@ const colors = [
 ];
 
 const sizes = ["S", "M", "L", "XL"];
+
+const priceRanges = [
+  { label: "Under ₹2,000", min: 0, max: 1999 },
+  { label: "₹2,000 - ₹2,999", min: 2000, max: 2999 },
+  { label: "₹3,000 - ₹3,999", min: 3000, max: 3999 },
+  { label: "₹4,000 - ₹4,999", min: 4000, max: 4999 },
+  { label: "₹5,000 & Above", min: 5000, max: Infinity },
+];
+
 export default function NewArrivals() {
   const navigate = useNavigate();
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [priceRange, setPriceRange] = useState(5000);
-  // const [filterOpen, setFilterOpen] = useState(true);
+  const [selectedPriceRange, setSelectedPriceRange] = useState(null);
   const [sortBy, setSortBy] = useState("featured");
   const [filterOpen, setFilterOpen] = useState(false);
+
   useEffect(() => {
     if (window.innerWidth > 768) {
       setFilterOpen(true);
@@ -121,7 +131,10 @@ export default function NewArrivals() {
       product.sizes.includes(selectedSize);
 
     const priceMatch =
-      product.price <= priceRange;
+      !selectedPriceRange ||
+      (product.price >= selectedPriceRange.min &&
+        product.price <= selectedPriceRange.max);
+
     return (
       categoryMatch &&
       colorMatch &&
@@ -241,21 +254,23 @@ export default function NewArrivals() {
           <div className="filter-block">
             <h4>PRICE</h4>
 
-            <input
-              type="range"
-              min="0"
-              max="5000"
-              value={priceRange}
-              onChange={(e) =>
-                setPriceRange(
-                  Number(e.target.value)
-                )
-              }
-            />
-
-            <div className="price-labels">
-              <span>₹0</span>
-              <span>₹{priceRange}</span>
+            <div className="price-range-list">
+              {priceRanges.map((range) => (
+                <label key={range.label}>
+                  <input
+                    type="checkbox"
+                    checked={selectedPriceRange?.label === range.label}
+                    onChange={() =>
+                      setSelectedPriceRange(
+                        selectedPriceRange?.label === range.label
+                          ? null
+                          : range
+                      )
+                    }
+                  />
+                  {range.label}
+                </label>
+              ))}
             </div>
           </div>
 
