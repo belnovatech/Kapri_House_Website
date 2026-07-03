@@ -434,3 +434,186 @@ color: #0F3D2E;
     max-width: 280px;
   }
 }
+
+
+
+/* ==========================================
+   FESTIVE WEAR OVERRIDES
+   Paste at END of CSS
+========================================== */
+
+.festive-scroll-row{
+    display:grid !important;
+    grid-template-columns:repeat(5,1fr) !important;
+    gap:22px !important;
+    padding:0 28px 30px !important;
+    overflow:visible !important;
+}
+
+.fw-card{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:100% !important;
+    flex:none !important;
+
+    background:#fff !important;
+    border-radius:14px !important;
+    overflow:hidden !important;
+
+    box-shadow:0 8px 22px rgba(0,0,0,.08) !important;
+    transition:.35s ease !important;
+}
+
+.fw-card:hover{
+    transform:translateY(-6px) !important;
+    box-shadow:0 16px 35px rgba(0,0,0,.14) !important;
+}
+
+.fw-image-wrapper{
+    height:360px !important;
+    overflow:hidden !important;
+}
+
+.fw-img{
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+}
+
+.fw-card:hover .fw-img{
+    transform:scale(1.05);
+}
+
+.fw-info{
+    padding:15px 16px 18px !important;
+}
+
+.fw-stars{
+    font-size:13px !important;
+    color:#d4a017 !important;
+    margin-bottom:8px !important;
+}
+
+.fw-info h4{
+    margin:0 0 12px !important;
+
+    font-size:15px !important;
+    font-weight:600 !important;
+    line-height:1.45 !important;
+    color:#123b32 !important;
+
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+    line-clamp:2;
+    overflow:hidden;
+
+    min-height:44px;
+}
+
+.fw-price{
+    display:flex !important;
+    align-items:center !important;
+    gap:8px !important;
+    margin-top:4px !important;
+
+    font-size:22px !important;
+    font-weight:700 !important;
+    color:#0F3D2E !important;
+}
+
+.fw-mrp{
+    font-size:14px !important;
+    color:#999 !important;
+    text-decoration:line-through !important;
+    font-weight:400 !important;
+}
+
+.fw-badge{
+    border-radius:6px !important;
+    padding:6px 12px !important;
+    font-size:12px !important;
+    background:rgba(173,67,80,.9) !important;
+    color:#fff !important;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1200px){
+
+.festive-scroll-row{
+grid-template-columns:repeat(4,1fr)!important;
+}
+
+.fw-image-wrapper{
+height:330px!important;
+}
+
+}
+
+@media(max-width:992px){
+
+.festive-scroll-row{
+grid-template-columns:repeat(3,1fr)!important;
+}
+
+.fw-image-wrapper{
+height:300px!important;
+}
+
+}
+
+@media(max-width:768px){
+
+.festive-scroll-row{
+grid-template-columns:repeat(2,1fr)!important;
+gap:14px!important;
+padding:0 14px 20px!important;
+}
+
+.fw-image-wrapper{
+height:260px!important;
+}
+
+.fw-info{
+padding:12px!important;
+}
+
+.fw-info h4{
+font-size:13px!important;
+}
+
+.fw-price{
+font-size:18px!important;
+}
+
+}
+
+@media(max-width:480px){
+
+.festive-scroll-row{
+grid-template-columns:repeat(2,1fr)!important;
+gap:12px!important;
+padding:0 10px 20px!important;
+}
+
+.fw-image-wrapper{
+height:220px!important;
+}
+
+.fw-info h4{
+font-size:12px!important;
+min-height:36px!important;
+}
+
+.fw-price{
+font-size:16px!important;
+}
+
+.fw-mrp{
+font-size:11px!important;
+}
+
+}

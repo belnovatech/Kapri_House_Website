@@ -1108,3 +1108,152 @@
     height: 55px;
   }
 }
+
+/* ==========================================
+   PERFECT MOBILE MTM LAYOUT
+========================================== */
+
+@media (max-width:768px){
+
+.mtm-grid{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:18px !important;
+}
+
+.mtm-col{
+    width:100% !important;
+    padding:16px !important;
+    border-radius:12px !important;
+}
+
+.product-gallery{
+    display:flex !important;
+    flex-direction:column !important;
+}
+
+.gallery-main{
+    order:1 !important;
+}
+
+.thumb-grid{
+    order:2 !important;
+    width:100% !important;
+    flex-direction:row !important;
+    overflow-x:auto !important;
+    gap:10px !important;
+    margin-top:12px;
+}
+
+.thumb-grid img{
+    width:72px !important;
+    min-width:72px !important;
+    height:90px !important;
+}
+
+.main-image{
+    width:100% !important;
+    height:auto !important;
+    aspect-ratio:3/4;
+    object-fit:cover;
+}
+
+.mtm-product-title{
+    font-size:22px !important;
+    line-height:1.4;
+}
+
+.price-row{
+    flex-wrap:wrap;
+}
+
+.sale-price{
+    font-size:28px !important;
+}
+
+.sizes{
+    display:grid !important;
+    grid-template-columns:repeat(5,1fr);
+    gap:8px;
+}
+
+.sizes button{
+    width:100% !important;
+    height:44px !important;
+}
+
+.custom-size-grid{
+    grid-template-columns:1fr !important;
+}
+
+.mtm-tabs{
+    overflow-x:auto;
+}
+
+.mtm-tabs button{
+    white-space:nowrap;
+    min-width:150px;
+}
+
+.mtm-sidebar-col{
+    display:flex !important;
+    flex-direction:column !important;
+}
+
+.mtm-how-it-works{
+    display:grid !important;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.description{
+    margin-top:20px;
+}
+
+.description p{
+    font-size:15px;
+    line-height:1.8;
+}
+
+}
+
+/* Small mobiles */
+
+@media (max-width:480px){
+
+.product-page{
+    padding:10px !important;
+}
+
+.mtm-banner h1{
+    font-size:22px !important;
+}
+
+.mtm-banner p{
+    font-size:13px !important;
+}
+
+.sale-price{
+    font-size:24px !important;
+}
+
+.thumb-grid img{
+    width:65px !important;
+    min-width:65px !important;
+    height:80px !important;
+}
+
+.sizes{
+    grid-template-columns:repeat(5,1fr);
+}
+
+.sizes button{
+    height:40px !important;
+    font-size:13px;
+}
+
+.mtm-how-it-works{
+    grid-template-columns:1fr;
+}
+
+}
