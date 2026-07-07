@@ -1,10 +1,80 @@
 .topbar {
-  background: linear-gradient(90deg, #67242c 0%, #a85252 30%, #755504 70%, #976f03 100%);
+  position: relative;
+  background: linear-gradient(135deg, #0F1E36 0%, #1E3F73 100%);
   height: 35px;
   overflow: hidden;
   display: flex;
   align-items: center;
   white-space: nowrap;
+  border-top: 1.5px solid #E3C46B;
+  border-bottom: 1.5px solid #E3C46B;
+  box-shadow:
+    0 0 10px rgba(227, 196, 107, 0.45),
+    inset 0 0 18px rgba(227, 196, 107, 0.08);
+  padding: 0 8px;
+}
+
+/* gold shine sweep */
+.topbar-shine {
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 240, 200, 0.35) 50%,
+    transparent 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+  animation: shine-sweep 6s ease-in-out infinite;
+}
+
+@keyframes shine-sweep {
+  0% {
+    left: -60%;
+  }
+  45% {
+    left: 130%;
+  }
+  100% {
+    left: 130%;
+  }
+}
+
+.topbar-flourish {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #E3C46B;
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.topbar-flourish svg {
+  display: block;
+  height: 24px;
+  width: auto;
+}
+
+.topbar-flourish-left {
+  left: 10px;
+}
+
+.topbar-flourish-right {
+  right: 10px;
+  transform: translateY(-50%) scaleX(-1);
+}
+
+.marquee-wrapper {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  margin: 0 120px;
 }
 
 .marquee {
@@ -13,92 +83,88 @@
 }
 
 .marquee span {
-   color: #ffd700; 
+  color: #E3C46B;
   font-size: 13px;
   font-weight: 500;
   margin-right: 80px;
-  text-shadow: 0 0 8px rgba(255, 215, 0, 0.4); 
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
 }
 
 @keyframes scroll-right {
   0% {
     transform: translateX(-100%);
   }
-
   100% {
     transform: translateX(100%);
   }
 }
 
-
-/* =========================
-   TABLET (1024px & below)
-========================= */
 @media (max-width: 1024px) {
   .topbar {
     height: 32px;
   }
-
   .marquee span {
     font-size: 12px;
     margin-right: 60px;
   }
-
   .marquee {
     animation-duration: 22s;
   }
+  .marquee-wrapper {
+    margin: 0 90px;
+  }
+  .topbar-flourish svg {
+    height: 18px;
+  }
 }
 
-/* =========================
-   MOBILE (768px & below)
-========================= */
 @media (max-width: 768px) {
   .topbar {
     height: 30px;
   }
-
   .marquee span {
     font-size: 11px;
     margin-right: 45px;
   }
-
   .marquee {
     animation-duration: 18s;
   }
+  .marquee-wrapper {
+    margin: 0 50px;
+  }
+  .topbar-flourish svg {
+    height: 14px;
+  }
 }
 
-/* =========================
-   SMALL MOBILE (480px & below)
-========================= */
 @media (max-width: 480px) {
   .topbar {
     height: 28px;
   }
-
   .marquee span {
     font-size: 10px;
     margin-right: 35px;
     text-shadow: none;
   }
-
   .marquee {
     animation-duration: 15s;
   }
+  .marquee-wrapper {
+    margin: 0 6px;
+  }
+  .topbar-flourish {
+    display: none;
+  }
 }
 
-/* =========================
-   EXTRA SMALL DEVICES
-========================= */
 @media (max-width: 360px) {
   .topbar {
     height: 26px;
   }
-
   .marquee span {
     font-size: 9px;
     margin-right: 25px;
   }
-
   .marquee {
     animation-duration: 12s;
   }
