@@ -140,8 +140,8 @@
 
 .newsletter-form button {
   border: none;
-  background: #d97882;
-  color: #fff;
+  background: linear-gradient(135deg, #3f60a6 0%, #0f1e36 100%);
+  color: #e3c46b;
   padding: 0 24px;
   font-size: 12px;
   cursor: pointer;
@@ -189,8 +189,8 @@
 ========================= */
 
 .footer-banner {
-  background: #d97882;
-  color: white;
+ background: linear-gradient(135deg, #3f60a6 0%, #0f1e36 100%);
+  color: #e3c46b;
   text-align: center;
   padding: 18px;
   font-size: 16px;

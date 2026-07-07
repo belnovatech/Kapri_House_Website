@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Header.css";
 
-import logo from "../assets/Kaprilogo.webp";
+import logo from "../assets/KH1.jpg";
 
 import {
   FiSearch,

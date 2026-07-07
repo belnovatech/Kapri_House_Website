@@ -101,6 +101,14 @@ export default function ProductDetails() {
         {/* ===== Column 1: Gallery + product info ===== */}
         <div className="mtm-col mtm-product-col">
           <div className="product-gallery">
+            <div className="gallery-main">
+              <ZoomImage
+                key={selectedImage}
+                src={images[selectedImage]}
+                alt={state.title}
+                className="main-image"
+              />
+            </div>
             <div className="thumb-grid">
               {images.map((img, i) => (
                 <img
@@ -111,14 +119,6 @@ export default function ProductDetails() {
                   className={selectedImage === i ? "active-thumb" : ""}
                 />
               ))}
-            </div>
-            <div className="gallery-main">
-              <ZoomImage
-                key={selectedImage}
-                src={images[selectedImage]}
-                alt={state.title}
-                className="main-image"
-              />
             </div>
           </div>
 
