@@ -13,7 +13,7 @@ export default function Navbar() {
     { name: "KURTA SETS", path: "/kurta-sets" },
     // { name: "DRESSES", path: "/dresses" },
     { name: "SAREES", path: "/sarees" },
-    { name: "NiGHT WEAR", path: "/menswear" },
+    { name: "NIGHT WEAR", path: "/menswear" },
     // { name: "HOME LINEN", path: "/home-linen" },
     { name: "BEST SELLERS", path: "/sale" },
   ];

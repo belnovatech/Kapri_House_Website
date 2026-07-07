@@ -14,13 +14,13 @@
 .section-title h2 {
   font-size: 28px;
   font-weight: 700;
- color: #0F3D2E;
+ color: #1e3f73;
   margin-bottom: 8px;
   letter-spacing: 2px;
 }
 
 .section-title p {
- color: #0F3D2E;
+ color: #1e3f73;
   font-size: 14px;
   font-style: italic;
 }
@@ -190,7 +190,7 @@ transform: scale(1.04);
 .fw-price {
   font-size: 13px;
   font-weight: 600;
- color: #0F3D2E;
+ color: #1e3f73;
   display: flex;
   align-items: center;
   gap: 5px;
@@ -200,7 +200,7 @@ transform: scale(1.04);
 
 .fw-mrp {
   text-decoration: line-through;
-color: #0F3D2E;
+color: #1e3f73;
   font-size: 11px;
   font-weight: 400;
   text-align: left; 
@@ -216,7 +216,7 @@ color: #0F3D2E;
 .view-btn {
   display: block;
   margin: 0 auto;
-     background: linear-gradient(135deg, #0F3D2E 0%, #8e7748 100%);
+     background: linear-gradient(135deg, #1e3f73 0%, #0f1e36 100%);
   color: #fff;
   border: none;
   border-radius: 10px;

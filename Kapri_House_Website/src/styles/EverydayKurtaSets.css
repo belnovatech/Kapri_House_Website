@@ -52,13 +52,13 @@ transform: scale(1.04);
 .ek-title h2 {
   font-size: 28px;
   font-weight: 700;
-  color: #0f3d2e;
+  color: #1e3f73;
   margin-bottom: 8px;
   letter-spacing: 2px;
 }
 
 .ek-title p {
-  color: #999;
+  color: #1e3f73;
   font-size: 14px;
   font-style: italic;
 }
@@ -216,7 +216,7 @@ transform: scale(1.04);
 .ek-view-all-btn {
   display: block;
   margin: 0 auto;
-  background: linear-gradient(135deg, #0f3d2e 0%, #b8860b 100%);
+   background: linear-gradient(135deg, #3f60a6 0%, #0f1e36 100%);
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -448,7 +448,7 @@ transform: scale(1.04);
     font-size:15px !important;
     font-weight:600 !important;
     line-height:1.45 !important;
-    color:#123b32 !important;
+    color:#1e3f73 !important;
 
     margin:0 0 12px !important;
 
@@ -468,7 +468,7 @@ transform: scale(1.04);
 
     font-size:22px !important;
     font-weight:700 !important;
-    color:#0F3D2E !important;
+    color:#1e3f73 !important;
 }
 
 .ek-mrp{
